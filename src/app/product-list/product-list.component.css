@@ -1,0 +1,32 @@
+
+ .miContainer {
+  margin-top: 16px; 
+  padding-inline-start: 6px;
+  border: 1px solid #eee;
+}
+
+.mainItem {
+  border-radius: 4px;
+  border: 1px solid #eee;
+  background-color: #dfe2ec;
+  height: 40px;
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  line-height: 24px;  
+}
+
+.mainItem:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
