@@ -1,9 +1,14 @@
 <a [routerLink]="['/']">
-  <h1>My Store</h1>
+  <h1>我的商店</h1>
 </a>
-
-<a [routerLink]="['/car-submit']" class="button fancy-button"><i class="material-icons">shopping_cart</i>结账({{carService.items.length}})</a>
-
+<input type="text" [(ngModel)]="searchValue[0]" *ngIf="carService.curRouter=='/'"/>
+内容：{{searchValue[0]}}
+<input type="text" [(ngModel)]="searchValue[2]" *ngIf="carService.curRouter=='/'"/>
+内容：{{searchValue[2]}}
+<button (click)="doSearchProd()" *ngIf="carService.curRouter=='/'">搜索本店</button>
+<a [routerLink]="['/car-submit']" class="button fancy-button">
+  <i>购物车({{ carService.items.length }})</i>
+</a>
 <!-- 
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that

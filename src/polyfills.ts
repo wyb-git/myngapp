@@ -63,9 +63,14 @@ import 'zone.js/dist/zone'; // Included with Angular CLI.
  * APPLICATION IMPORTS
  */
 
+//为了保证shop-car.service.ts的base64编码解码的new Buffer正确执行，必须加以下两行代码
+(window as any).global = window;
+(window as any).Buffer = require('buffer').Buffer;
+
+//(window as any).global = window;
+//window.Buffer = window.Buffer|| require('buffer').Buffer;
 
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+can be found in the LICENSE file at http://angular.io/license*/

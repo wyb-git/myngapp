@@ -54,10 +54,11 @@ a:hover {
 /* Input */
 
 input {
-  font-size: 14px;
+  font-size: 12px;
   border-radius: 2px;
   padding: 8px;
-  margin-bottom: 16px;
+  height: 26px;
+  margin-bottom: 8px;
   border: 1px solid #BDBDBD;
 }
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-//import { Http } from '@angular/http';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ShopCarService } from './shop-car.service';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +10,21 @@ import { Component } from '@angular/core';
 export class AppComponent  {
   public jsonData:any[] = [];
   constructor(
-    //private http: Http,
-    ) { 
+    public router: Router,
+    private carService: ShopCarService,
+  ) { 
       //
   }
-  ngOnInit() {
-    /*this.http.get('assets/shipping.json').subscribe(data => {
-        this.jsonData = [];//JSON.parse(data._body);
-        console.log(data._body);
-      });*/       
-  }
 
+  ngOnInit() {
+    this.router.events.subscribe((event) =>{
+      this.carService.curRouter = this.router.url;
+    })
+  }
+  
+  ngOnDestroy(){
+    //this.router
+  }
 }
 
 

@@ -8,9 +8,19 @@ import { Output, EventEmitter } from '@angular/core';
   styleUrls: ['./product-op.component.css']
 })
 export class ProductOpComponent implements OnInit {
-  @Input() product;
+  @Input() product:any;
   @Output() notify = new EventEmitter();
-  @Output() share = new EventEmitter();
-  constructor() {}
-  ngOnInit() {}
+  @Input() onShare:any;
+
+  constructor() {
+
+  }
+
+  ngOnInit() {
+
+  }
+
+  doOnShare(){
+    this.onShare();
+  }
 }

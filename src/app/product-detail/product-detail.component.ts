@@ -23,6 +23,7 @@ export class ProductDetailComponent implements OnInit {
   }
   addToCart(product) {
     this.carService.addToCar(product);
+    console.log(this.carService.items.length);
     window.alert('已加入购物车!');    
   }
 }

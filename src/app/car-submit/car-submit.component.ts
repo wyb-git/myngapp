@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ShopCarService } from '../shop-car.service';
 import { AppComponent } from '../app.component';
-import { HttpClient } from '@angular/common/http'; 
+import { HttpClient, HttpHeaders } from '@angular/common/http'; 
+import { ReturnStatement } from '@angular/compiler';
 
 @Component({
   selector: 'app-car-submit',
@@ -16,7 +17,7 @@ export class CarSubmitComponent implements OnInit {
   public checkoutForm: any;
   public jsonData:any;
   constructor(
-    private cartService: ShopCarService,
+    private carService: ShopCarService,
     private formBuilder: FormBuilder,
     //private appCmp: AppComponent,
     public http: HttpClient,
@@ -28,22 +29,22 @@ export class CarSubmitComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.items = this.cartService.getItems();
-    this.http.get('assets/shipping.json').subscribe(response =>{
+    let strParam = '{"dataType":"spPrice","searchValue":""}';
+    this.carService.httpGetBase64(strParam).then((response: any)=>{
       this.jsonData = response;
-      //console.log(response);
+      console.log(response);
     })
+    //
   }
 
   onSubmit(customerData) {
-    // Process checkout data here
-    console.warn('订单已提交', customerData);
+    let strParam = '{"name":"'+ customerData.name + '","address":"' + customerData.address + '"}';
+    this.carService.httpPosBase64(strParam).then((response:any)=>{
+      window.alert(response.msg);
+    })
+  } 
 
-    this.items = this.cartService.clearCar();
-    this.checkoutForm.reset();
-  }
-
-  onShippingPriceClick(e){
+  onShippingPriceClick(){
     if(this.showState == 0){
       this.showState = 1;
     }

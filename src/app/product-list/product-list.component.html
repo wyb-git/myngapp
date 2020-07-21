@@ -1,7 +1,7 @@
 
-<h2>Products</h2>
+<h2>宝贝列表</h2>
 <div 
-  *ngFor="let myProduct of myProducts; index as productId" 
+  *ngFor="let myProduct of carService.products; index as productId" 
   class="miContainer">
 	<h3 class="mainItem">
 		<a [title]="myProduct.name + '(' + myProduct.price + ') details'" [routerLink]="['/products', productId]">
@@ -10,12 +10,12 @@
 	</h3>
 	<p *ngIf="myProduct.description != ''">
 		Description: {{ myProduct.description }}
-	</p>
-	<!--<button (click)="share()">点击分享{{myProduct.name}}</button>-->
+	</p>  
+  <!--<button (click)="share()">点击分享{{myProduct.name}}</button>-->
   <app-product-op 
     [product]="myProduct"
     (notify)="onNotify()"
-    (share)="onShare()">
+    [onShare]="onShare">
   </app-product-op>
 </div>
 <!-- 

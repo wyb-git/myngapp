@@ -1,12 +1,59 @@
 import { Injectable } from '@angular/core';
+//import { promise } from 'protractor';
+//import { resolve } from 'dns';
+//import 'angular-base64/angular-base64';
+import { HttpClient, HttpHeaders } from '@angular/common/http'; 
 
 @Injectable()
 export class ShopCarService {
-  public items = [];
-
+  public curRouter = '/';
+  public products:any[] = [];
+  public items:any[] = [];
+  public serverUrlGet = 'http://dvlp.wyb.com/server/angHttpServe.php?op=get&&data=';
+  public serverUrlPos = 'http://dvlp.wyb.com/server/angHttpServe.php?op=pos&&data=';
+  
   constructor(
+    private http: HttpClient,
   ) {
 
+  }
+
+  //new Buffer正确执行的前提，在polyfills.ts文件加两行代码
+  base64Encode(str):any{
+    let result = new Buffer(str).toString('base64');
+    return result;
+  }
+
+  //new Buffer正确执行的前提，在polyfills.ts文件加两行代码
+  base64Decode(str):any{
+    let result = new Buffer(str, 'base64').toString();
+    return result;
+  }
+
+  httpGetBase64(param):any{
+    return new Promise((resolve, reject)=>{
+      let bs64Param = this.base64Encode(param);
+      this.http.get(this.serverUrlGet + bs64Param).subscribe(response =>{
+        let objData: any = response;
+        let strData: any = this.base64Decode(objData.data);
+        objData = JSON.parse(strData);
+        resolve(objData);   
+        //console.log(objData);     
+      })
+    })
+  }
+
+  httpPosBase64(param):any{
+    return new Promise((resolve, reject)=>{
+      let bs64Param = this.base64Encode(param);
+      this.http.get(this.serverUrlPos + bs64Param).subscribe(response =>{
+        let objData: any = response;
+        let strData: any = this.base64Decode(objData.data);
+        objData = JSON.parse(strData);
+        resolve(objData);   
+        //console.log(objData);     
+      })
+    })
   }
 
   addToCar(product) {
@@ -24,5 +71,5 @@ export class ShopCarService {
   clearCar() {
     this.items = [];
     return this.items;
-  }
+  }  
 }
