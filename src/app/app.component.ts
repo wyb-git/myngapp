@@ -18,7 +18,15 @@ export class AppComponent  {
 
   ngOnInit() {
     this.router.events.subscribe((event) =>{
-      this.carService.curRouter = this.router.url;
+      if(this.router.url=='/'){
+        this.carService.curRouter = '0';
+      }
+      else if(this.router.url=='/aps'){
+        this.carService.curRouter = '1';
+      }
+      else{
+        this.carService.curRouter = '2';
+      }
     })
   }
   

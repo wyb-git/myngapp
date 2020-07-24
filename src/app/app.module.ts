@@ -12,7 +12,10 @@ import { ProductOpComponent } from './product-op/product-op.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ShopCarService } from './shop-car.service';
 import { CarSubmitComponent } from './car-submit/car-submit.component';
-import { HttpClientModule, HttpClientJsonpModule} from '@angular/common/http'; 
+import { HttpClientModule, HttpClientJsonpModule} from '@angular/common/http';
+import { ApsComponent } from './aps/aps.component';
+import { ApsmainComponent } from './aps/apsmain/apsmain.component';
+import { ApsdetailComponent } from './aps/apsdetail/apsdetail.component'; 
 
 @NgModule({
   imports: [
@@ -25,6 +28,7 @@ import { HttpClientModule, HttpClientJsonpModule} from '@angular/common/http';
       { path: '', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailComponent},
       { path: 'car-submit', component: CarSubmitComponent},
+      { path: 'aps', component: ApsComponent}
     ])
   ],
   declarations: [
@@ -33,7 +37,10 @@ import { HttpClientModule, HttpClientJsonpModule} from '@angular/common/http';
     ProductListComponent,
     ProductOpComponent,
     ProductDetailComponent,
-    CarSubmitComponent
+    CarSubmitComponent,
+    ApsComponent,
+    ApsmainComponent,
+    ApsdetailComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [ShopCarService]

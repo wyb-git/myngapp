@@ -1,12 +1,12 @@
 <a [routerLink]="['/']">
-  <h1>我的商店</h1>
+  <div [ngSwitch]="carService.curRouter">
+    <h1 *ngSwitchCase='1'>智能排期</h1>
+    <h1 *ngSwitchDefault>我的商店</h1>
+  </div>  
 </a>
-<input type="text" [(ngModel)]="searchValue[0]" *ngIf="carService.curRouter=='/'"/>
-内容：{{searchValue[0]}}
-<input type="text" [(ngModel)]="searchValue[2]" *ngIf="carService.curRouter=='/'"/>
-内容：{{searchValue[2]}}
-<button (click)="doSearchProd()" *ngIf="carService.curRouter=='/'">搜索本店</button>
-<a [routerLink]="['/car-submit']" class="button fancy-button">
+<input type="text" [(ngModel)]="searchValue[0]" *ngIf="carService.curRouter=='0'"/>
+<button (click)="doSearchProd()" *ngIf="carService.curRouter=='0'">搜索本店</button>
+<a [routerLink]="['/car-submit']" class="button fancy-button" *ngIf="carService.curRouter!='1'">
   <i>购物车({{ carService.items.length }})</i>
 </a>
 <!-- 

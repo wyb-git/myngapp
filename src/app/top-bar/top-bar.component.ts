@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
+  public curUrl="/2";
   public searchValue:any [] = ['搜索宝贝','搜索商品','搜索'];
   public searchHis:any [] = [];
 

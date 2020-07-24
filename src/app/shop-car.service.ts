@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class ShopCarService {
-  public curRouter = '/';
+  public curRouter = '0';
   public products:any[] = [];
   public items:any[] = [];
   public serverUrlGet = 'http://dvlp.wyb.com/server/angHttpServe.php?op=get&&data=';
