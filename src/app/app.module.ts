@@ -15,7 +15,9 @@ import { CarSubmitComponent } from './car-submit/car-submit.component';
 import { HttpClientModule, HttpClientJsonpModule} from '@angular/common/http';
 import { ApsComponent } from './aps/aps.component';
 import { ApsmainComponent } from './aps/apsmain/apsmain.component';
-import { ApsdetailComponent } from './aps/apsdetail/apsdetail.component'; 
+import { ApsdetailComponent } from './aps/apsdetail/apsdetail.component';
+import { TablistComponent } from './aps/tablist/tablist.component';
+import { TabComponent } from './aps/tablist/tab/tab.component'; 
 
 @NgModule({
   imports: [
@@ -40,7 +42,9 @@ import { ApsdetailComponent } from './aps/apsdetail/apsdetail.component';
     CarSubmitComponent,
     ApsComponent,
     ApsmainComponent,
-    ApsdetailComponent
+    ApsdetailComponent,
+    TablistComponent,
+    TabComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [ShopCarService]

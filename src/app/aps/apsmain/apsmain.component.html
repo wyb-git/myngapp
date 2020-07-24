@@ -1,9 +1,15 @@
-<div>
-    <p>查询条件栏</p>
+<div class="searchBand">
+    <label class="apslabel">订单号：</label>
+    <input class="apsinput" type="text" [(ngModel)]="mpsid" />
+    <label class="apslabel">客户：</label>
+    <input class="apsinput" type="text" [(ngModel)]="customer" />
+    <label class="apslabel">款号：</label>
+    <input class="apsinput" type="text" [(ngModel)]="matcode" />
+    <button class="apsbutton">刷新</button>
+    <button class="apsbutton">查询</button>
+    <button class="apsbutton">条件重置</button>
 </div>
-<div>
-    <p>切换栏</p>
-</div>
+<app-tablist></app-tablist>
 <div>
     <p>表格栏</p>
 </div>
