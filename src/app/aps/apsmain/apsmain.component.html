@@ -6,10 +6,12 @@
     <label class="apslabel">款号：</label>
     <input class="apsinput" type="text" [(ngModel)]="matcode" />
     <button class="apsbutton">刷新</button>
-    <button class="apsbutton">查询</button>
+    <button class="apsbutton" (click)="doSearch()">查询</button>
     <button class="apsbutton">条件重置</button>
 </div>
-<app-tablist></app-tablist>
+<app-tablist
+    [tablist]="tablist">
+</app-tablist>
 <div>
     <p>表格栏</p>
 </div>

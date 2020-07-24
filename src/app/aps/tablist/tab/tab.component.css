@@ -1,4 +1,29 @@
-.tab{
-    margin-left: 8px;
-    margin-right: 8px;
+.tbnormal{
+    font-size: 14px;
+    cursor: pointer;
+    height: 40px;
+    align-items: center;
+    margin-top: 15px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(172, 180, 175);
+    border-bottom-width: 2px;  
+    float: left;  
+}
+
+.tbhot{
+    font-size: 14px;
+    font-weight: bold;
+    color: blue;
+    cursor: pointer;
+    height: 40px;
+    align-items: center;
+    margin-top: 15px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-bottom-style: solid;
+    border-bottom-color: darkblue;
+    border-bottom-width: 2px;
+    float: left;
 }

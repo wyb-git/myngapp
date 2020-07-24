@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-tablist',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TablistComponent implements OnInit {
 
-  public tablist:any[]=["未安排(201)","已安排(8)","已完成(2)","全部(211)"];
+  @Input() public tablist:any[]=[];
   public curindex=0;
   constructor() { }
 

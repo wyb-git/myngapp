@@ -1,3 +1,8 @@
-<div class="tab">
-    <label (click)="tabClick()">{{tabcaption}}</label>
+<div 
+    title=""
+    [ngClass]="{'tbnormal':tablist.curindex!=tabindex,'tbhot':tablist.curindex==tabindex}" 
+    (click)="tabClick()">
+    {{tabcaption}}
 </div>
+
+
