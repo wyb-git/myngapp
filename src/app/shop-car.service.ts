@@ -56,8 +56,20 @@ export class ShopCarService {
     })
   }
 
+  postData()
+  {
+    const httpOptions={
+      headers:new HttpHeaders({'Content-Type':'application/json'})
+    }
+    this.http.post(
+      'http://cloudpf.weunit.cn/admin/ApsMps/getApsMainSum',
+      'params={"ordertype":1,"mpsid":"2020","customer":"迪卡侬"}',
+      httpOptions).subscribe(response=>{console.log(response)})
+  }
+
   addToCar(product) {
     this.items.push(product);
+    this.postData();
   }
 
   getItems() {
